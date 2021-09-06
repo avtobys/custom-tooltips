@@ -6,7 +6,7 @@ HTMLElement.prototype.tooltip = function () {
             element.parentNode.removeChild(element);
         });
 
-        let data = e.target.getAttribute("tooltip-data");
+        let data = e.target.getAttribute("data-tooltip");
 
         if (!data) return;
 
@@ -17,17 +17,17 @@ HTMLElement.prototype.tooltip = function () {
         div.innerHTML = "";
         divData.innerHTML = data;
 
-        divData.style.cssText = "position:absolute;overflow:hidden;font-size:14px;padding:5px;max-width:250px;min-width:200px;border-radius:5px;box-shadow:0 0 15px 2px " + bgColor + ";background-color:" + bgColor + ";color:" + textColor + ";"
+        divData.style.cssText = "position:absolute;overflow:hidden;font-size:14px;padding:15px;max-width:250px;min-width:250px;border-radius:5px;box-shadow:0 0 15px 2px " + bgColor + ";background-color:" + bgColor + ";color:" + textColor + ";"
 
         if (document.body.clientHeight / 2 < pos.bottom) {
-            div.style.cssText = "position:fixed;z-index:2147483647;" +
+            div.style.cssText = "position:fixed;z-index:2147483647;opacity:0;transition:opacity 0.6s;" +
                 "top:" + (pos.top - 15) + "px;" +
                 "left:" + ((pos.left + (pos.width / 2) - 10) + "px;") +
                 "border: 10px solid transparent;margin:auto;pointer-events:none;border-top-color:" + bgColor + ";";
 
             divData.style.bottom = "10px";
         } else {
-            div.style.cssText = "position:fixed;" +
+            div.style.cssText = "position:fixed;z-index:2147483647;opacity:0;transition:opacity 0.6s;" +
                 "top:" + (pos.top + pos.height - 5) + "px;" +
                 "left:" + ((pos.left + (pos.width / 2) - 10) + "px;") +
                 "border: 10px solid transparent;margin:auto;pointer-events:none;border-bottom-color:" + bgColor + ";";
@@ -49,6 +49,8 @@ HTMLElement.prototype.tooltip = function () {
         } else {
             divData.style.left = (posDivData.width * -1 / 2) + "px";
         }
+
+        div.style.opacity = "1";
 
     }
 
