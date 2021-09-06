@@ -19,7 +19,7 @@ HTMLElement.prototype.tooltip = function () {
 
         divData.style.cssText = "position:absolute;overflow:hidden;font-size:14px;padding:15px;max-width:250px;min-width:250px;border-radius:5px;box-shadow:0 0 15px 2px " + bgColor + ";background-color:" + bgColor + ";color:" + textColor + ";"
 
-        if (document.body.clientHeight / 2 < pos.bottom) {
+        if (window.innerHeight / 2 < pos.bottom) {
             div.style.cssText = "position:fixed;z-index:2147483647;opacity:0;transition:opacity 0.6s;" +
                 "top:" + (pos.top - 15) + "px;" +
                 "left:" + ((pos.left + (pos.width / 2) - 10) + "px;") +
