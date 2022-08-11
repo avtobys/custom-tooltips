@@ -1,6 +1,6 @@
 HTMLElement.prototype.tooltip = function () {
-    const bgColor = '#ddd';
-    const textColor = '#000';
+    const bgColor = 'rgba(0, 0, 0, 0.77)';
+    const textColor = '#fff';
     this.onmouseover = function (e) {
         document.querySelectorAll(".tooltip-custom").forEach(element => {
             element.parentNode.removeChild(element);
@@ -17,22 +17,22 @@ HTMLElement.prototype.tooltip = function () {
         div.innerHTML = "";
         divData.innerHTML = data;
 
-        divData.style.cssText = "position:absolute;overflow:hidden;font-size:14px;padding:15px;max-width:250px;min-width:250px;border-radius:5px;box-shadow:0 0 15px 2px " + bgColor + ";background-color:" + bgColor + ";color:" + textColor + ";"
+        divData.style.cssText = "position:absolute;overflow:hidden;font-size:14px;padding:3px 10px;max-width:250px;border-radius:5px;background-color:" + bgColor + ";color:" + textColor + ";white-space:nowrap;"
 
         if (window.innerHeight / 2 < pos.bottom) {
             div.style.cssText = "position:fixed;z-index:2147483647;opacity:0;transition:opacity 0.6s;" +
-                "top:" + (pos.top - 15) + "px;" +
-                "left:" + ((pos.left + (pos.width / 2) - 10) + "px;") +
-                "border: 10px solid transparent;margin:auto;pointer-events:none;border-top-color:" + bgColor + ";";
+                "top:" + (pos.top - 8) + "px;" +
+                "left:" + ((pos.left + (pos.width / 2) - 7) + "px;") +
+                "border: 6px solid transparent;margin:auto;pointer-events:none;border-top-color:" + bgColor + ";";
 
-            divData.style.bottom = "10px";
+            divData.style.bottom = "6px";
         } else {
             div.style.cssText = "position:fixed;z-index:2147483647;opacity:0;transition:opacity 0.6s;" +
-                "top:" + (pos.top + pos.height - 5) + "px;" +
-                "left:" + ((pos.left + (pos.width / 2) - 10) + "px;") +
-                "border: 10px solid transparent;margin:auto;pointer-events:none;border-bottom-color:" + bgColor + ";";
+                "top:" + (pos.top + pos.height - 3) + "px;" +
+                "left:" + ((pos.left + (pos.width / 2) - 7) + "px;") +
+                "border: 6px solid transparent;margin:auto;pointer-events:none;border-bottom-color:" + bgColor + ";";
 
-            divData.style.top = "10px";
+            divData.style.top = "6px";
         }
         div.classList.add("tooltip-custom");
 
