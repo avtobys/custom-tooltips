@@ -72,9 +72,9 @@ HTMLElement.prototype.tooltip = function () {
             posDiv = div.getBoundingClientRect();
 
         if (posDiv.left < (posDivData.width / 2)) {
-            divData.style.left = "-20px";
+            divData.style.left = "-15px";
         } else if (document.body.offsetWidth - posDiv.right < (posDivData.width / 2)) {
-            divData.style.left = (posDivData.width * -1 + 30) + "px";
+            divData.style.left = (posDivData.width * -1 + 25) + "px";
         } else {
             divData.style.left = (posDivData.width * -1 / 2) + "px";
         }
